@@ -1,6 +1,7 @@
-from http.client import HTTPException
 import typesystem
 import json
+
+from starlette.exceptions import HTTPException
 
 
 async def validate(validator, request):
@@ -12,6 +13,7 @@ async def validate(validator, request):
     if errors:
         raise HTTPException(400, dict(errors))
     return dict(data)
+
 
 string_pattern = "^[A-Za-z0-9-_]+$"
 base64_pattern = "^[A-Za-z0-9/=]+$"

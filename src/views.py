@@ -18,8 +18,6 @@ async def push(request):
 async def search(request):
     data = await validate(SearchSerializer, request)
     data_b64 = await retrieve(
-        app_id=data["app_id"],
-        username=data["username"],
-        secret=data["secret"],
+        app_id=data["app_id"], username=data["username"], secret=data["secret"],
     )
     return JSONResponse({"data_b64": data_b64})
