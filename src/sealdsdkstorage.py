@@ -6,7 +6,7 @@ from starlette.routing import Route
 from views import search, push
 import os
 
-middleware = [Middleware(CORSMiddleware, allow_origins=["*"])]
+middleware = [Middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["POST"])]
 
 app = Starlette(
     debug=os.environ.get("SSKS_DEBUG", "FALSE") == "TRUE",
