@@ -16,7 +16,7 @@ async def validate(validator, request):
 
 
 string_pattern = "^[A-Za-z0-9-_]+$"
-base64_pattern = "^[A-Za-z0-9/=]+$"
+base64_pattern = "^[A-Za-z0-9/=+]+$"
 
 
 class PushSerializer(typesystem.Schema):
