@@ -1,8 +1,12 @@
 from starlette.applications import Starlette
 from starlette.responses import JSONResponse
+from starlette.middleware import Middleware
+from starlette.middleware.cors import CORSMiddleware
 from starlette.routing import Route
 from views import search, push
 import os
+
+middleware = [Middleware(CORSMiddleware, allow_origins=["*"])]
 
 app = Starlette(
     debug=os.environ.get("SSKS_DEBUG", "FALSE") == "TRUE",
@@ -10,6 +14,7 @@ app = Starlette(
         Route("/search/", search, methods=["POST"]),
         Route("/push/", push, methods=["POST"]),
     ],
+    middleware=middleware,
 )
 
 
