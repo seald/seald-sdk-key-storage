@@ -16,7 +16,7 @@ async def store(app_id, username, secret, data_b64):
 
 async def retrieve(app_id, username, secret):
     path = os.path.join(
-        os.environ.get("SSKS_BASE_DIR", "data"), app_id, username, secret
+        os.environ.get("SSKS_BASE_DIR", "/ssks-data"), app_id, username, secret
     )
     try:
         with open(path, "r") as file:
