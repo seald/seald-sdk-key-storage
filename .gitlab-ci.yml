@@ -11,5 +11,5 @@ build:
     - docker login -u $CI_USER -p $CI_USER_PASSWORD nexus-docker.tardis.seald.io
     - apk add --no-cache git
     - docker build -t seald/ssks .
-    - docker push nexus-docker.tardis.seald.io/seald/ssks
+    - docker push nexus-docker.tardis.seald.io/seald/ssks:latest
   when: manual
