@@ -23,7 +23,7 @@ class PushSerializer(typesystem.Schema):
     app_id = typesystem.String(max_length=36, pattern=string_pattern)
     username = typesystem.String(max_length=64, pattern=string_pattern)
     secret = typesystem.String(max_length=128, pattern=string_pattern)
-    data_b64 = typesystem.String(max_length=4096, pattern=base64_pattern)
+    data_b64 = typesystem.String(max_length=16384, pattern=base64_pattern)
 
 
 class SearchSerializer(typesystem.Schema):
